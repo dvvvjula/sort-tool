@@ -28,7 +28,7 @@ public class GUI {
 
         // action after clicking
         addExistingSetButton.addActionListener(e -> {
-            frame.dispose();
+            frame.setEnabled(false);
 
             JFrame newFrame = new JFrame("Existing Set");
             newFrame.setSize(500, 600);
@@ -74,7 +74,7 @@ public class GUI {
 
         // action after clicking
         generateNewSetButton.addActionListener(e -> {
-            frame.dispose();
+            frame.setEnabled(false);
 
             JFrame newFrame = new JFrame("Generate New Set");
             newFrame.setSize(500, 600);
