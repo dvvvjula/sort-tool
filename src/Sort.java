@@ -79,18 +79,18 @@ public class Sort {
                     data[i] = Integer.parseInt(lines.get(i));
                 }
                 sortArray(data, algorithm);
-                outputResult(data);
+                promptAndSaveResult(data);
             } else if (detectedType.equals("Double")) {
                 Double[] data = new Double[lines.size()];
                 for (int i = 0; i < lines.size(); i++) {
                     data[i] = Double.parseDouble(lines.get(i));
                 }
                 sortArray(data, algorithm);
-                outputResult(data);
+                promptAndSaveResult(data);
             } else { // String type
                 String[] data = lines.toArray(new String[0]);
                 sortArray(data, algorithm);
-                outputResult(data);
+                promptAndSaveResult(data);
             }
 
         } catch (IOException e) {
@@ -105,15 +105,15 @@ public class Sort {
         if (type.equalsIgnoreCase("Integer")) {
             Integer[] data = generateIntegerArray(size);
             sortArray(data, algorithm);
-            outputResult(data);
+            promptAndSaveResult(data);
         } else if (type.equalsIgnoreCase("Double")) {
             Double[] data = generateDoubleArray(size);
             sortArray(data, algorithm);
-            outputResult(data);
+            promptAndSaveResult(data);
         } else { // String type
             String[] data = generateStringArray(size);
             sortArray(data, algorithm);
-            outputResult(data);
+            promptAndSaveResult(data);
         }
     }
 
@@ -127,28 +127,6 @@ public class Sort {
         }
         long end = System.currentTimeMillis();
         System.out.println(algorithm + " completed in " + (end - start) + " ms.");
-    }
-
-    // Print the sorted results and prompt the user to save the output
-    private static <T> void outputResult(T[] data) {
-        int n = data.length;
-        if (n <= 200) {
-            for (T item : data) {
-                System.out.println(item);
-            }
-        } else {
-            System.out.println("First 100 elements:");
-            for (int i = 0; i < 100; i++) {
-                System.out.println(data[i]);
-            }
-            System.out.println("...");
-            System.out.println("Last 100 elements:");
-            for (int i = n - 100; i < n; i++) {
-                System.out.println(data[i]);
-            }
-        }
-        // After displaying the result, prompt the user to save the output to a file
-        promptAndSaveResult(data);
     }
 
     // Prompt the user if they want to save the sorted result to a file
